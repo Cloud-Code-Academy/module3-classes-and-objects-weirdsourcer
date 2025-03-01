@@ -209,9 +209,16 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
+        Integer myRandomSeed = Math.round(Math.random() * 100);
+        //Integer myRandomNumber = myRandomSeed >= 50 || myRandomNumber <= 100 ?  myRandomSeed : (100 - myRandomSeed);
+        if (myRandomSeed >= 50 || myRandomSeed <= 100) {
+            return myRandomSeed;
+        } else {
+            return 100 - myRandomSeed;
+        }
 
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        //return myRandomNumber; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -295,7 +302,7 @@ public with sharing class ClassesObjectsMethods {
         public String author;
 
         // pages
-        public String pages;
+        public Integer pages;
     
         // Book constructor to initialize the title and author
         public Book(String title, String author) {
@@ -346,18 +353,17 @@ public with sharing class ClassesObjectsMethods {
         List<Book> myBookList = new List<Book> {myBook1};
 
         // Update the title and author of myBook1
-        myBook1.title = myBook1.title;
-        myBook1.author = myBook1.author;
-         
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';
 
         // Update the pages for myBook1 to 352
-        myBook1.pages = '352';
+        myBook1.pages = 352;
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
         Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');
 
         // Update the pages for A Brief History of Time to 256
-        myBook2.pages = '256';
+        myBook2.pages = 256;
 
         // Add the book to the list
         myBookList.add(myBook2);
@@ -426,14 +432,19 @@ public with sharing class ClassesObjectsMethods {
         List<String> results = new List<String>();
         // Create a new instance of Person class
         // Name the person 'John Doe' and set the age to 28
+        Person myPerson = new Person('John Doe', 28);
+
 
         // Add the details of the person using the introduceYourself method
+        results.add(myPerson.introduceYourself());
 
         // Get the name of the person using the getter method and add it to the list
+        results.add(myPerson.getName());
 
         // Get the age of the person using the getter method and add it to the list
+        results.add(String.valueOf(myPerson.getAge()));
         
-        return null; // Replace null with the variable you used to store the result
+        return results; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -445,9 +456,10 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Person createPerson(String name, Integer age) {
         // Create a new instance of the Person class using the provided name and age
+        Person myPerson = new Person(name, age);
         
         // Return the new instance of the Person class
-        return null; // Replace null with the variable you used to store the result
+        return myPerson; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -460,15 +472,21 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of new Person objects.
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
-
+        
+        List<Person> myPersonList = new List<Person>();
+        
         // Loop through each name in the provided list of names
+        for (String personName : names) {
+            Person myPerson = new Person(personName, age);    
+            myPersonList.add(myPerson);
+        }
             // Create a new Person object for each name
             
             // Add the new Person object to the list of Person objects
         
         
         // Return the list of Person objects
-        return null; // Replace null with the variable you used to store the result
+        return myPersonList; // Replace null with the variable you used to store the result
     }
 
 
@@ -483,6 +501,6 @@ public with sharing class ClassesObjectsMethods {
      * @return The Person object of the older person.
      */
     public static Person getOlderPerson(Person person1, Person person2) {
-        return null; // Replace null with the variable you used to store the result
+        return person1.getAge() > person2.getAge() ? person1 : person2; // Replace null with the variable you used to store the result
     }
 }
