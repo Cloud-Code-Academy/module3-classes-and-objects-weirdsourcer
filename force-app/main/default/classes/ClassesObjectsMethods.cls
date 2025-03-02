@@ -209,7 +209,7 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-        Integer myRandomSeed = Math.round(Math.random() * 100);
+        Integer myRandomSeed = (Integer) Math.round(Math.random() * 100);
         //Integer myRandomNumber = myRandomSeed >= 50 || myRandomNumber <= 100 ?  myRandomSeed : (100 - myRandomSeed);
         if (myRandomSeed >= 50 || myRandomSeed <= 100) {
             return myRandomSeed;
