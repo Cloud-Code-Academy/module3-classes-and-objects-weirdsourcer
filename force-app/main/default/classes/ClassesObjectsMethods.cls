@@ -52,11 +52,14 @@ public with sharing class ClassesObjectsMethods {
         //List<String> myStringDate = new List<String>{myLength, myString, myLowerCase};
         List<String> myStringData = new List<String>();
         // In the first position add the string length
-        myStringData.add(myLength);
+        //myStringData.add(myLength);
         // In the second position add the substring
-        myStringData.add(mySubstring);
+        //myStringData.add(mySubstring);
         // In the third position add the string in lower case
-        myStringData.add(myLowerCase);
+        //myStringData.add(myLowerCase);
+        
+        //Adding all at the same time
+        myStringData.addAll(myLength, mySubstring, myLowerCase);
 
         return myStringData; // Replace null with the variable you used to store the result
     }
@@ -170,7 +173,7 @@ public with sharing class ClassesObjectsMethods {
         // Remove the last comma from the result string
 
         for (String name : scientistNames) {
-            if (name.toLowerCase().contains('g')) {
+            if (name.containsIgnoreCase('g')) {
                 appendedName.add(name);
             }
         }
@@ -211,7 +214,7 @@ public with sharing class ClassesObjectsMethods {
         // Use Math class to generate number between 50 and 100
         Integer myRandomSeed = (Integer) Math.round(Math.random() * 100);
         //Integer myRandomNumber = myRandomSeed >= 50 || myRandomNumber <= 100 ?  myRandomSeed : (100 - myRandomSeed);
-        if (myRandomSeed >= 50 || myRandomSeed <= 100) {
+        if (myRandomSeed >= 50 && myRandomSeed <= 100) {
             return myRandomSeed;
         } else {
             return 100 - myRandomSeed;
