@@ -52,14 +52,11 @@ public with sharing class ClassesObjectsMethods {
         //List<String> myStringDate = new List<String>{myLength, myString, myLowerCase};
         List<String> myStringData = new List<String>();
         // In the first position add the string length
-        //myStringData.add(myLength);
+        myStringData.add(myLength);
         // In the second position add the substring
-        //myStringData.add(mySubstring);
+        myStringData.add(mySubstring);
         // In the third position add the string in lower case
-        //myStringData.add(myLowerCase);
-        
-        //Adding all at the same time
-        myStringData.addAll(myLength, mySubstring, myLowerCase);
+        myStringData.add(myLowerCase);
 
         return myStringData; // Replace null with the variable you used to store the result
     }
